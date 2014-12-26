@@ -43,7 +43,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	
 	vector<int> vec(len);
-	
+	vector<int> vec2(len);
 	
 	/*for(int i=1;i<55;i++){
 	vec.push_back(i);
@@ -51,70 +51,81 @@ int _tmain(int argc, _TCHAR* argv[])
 	vector<int>::iterator it=vec.begin();*/
 	int temp=0;
 	srand(time(NULL));
-	int num_rand=0;
+	//int num_rand=0;
+	int num_temp=0;
 	for(int i=0;i<len;i++){
-
-		if(i%5==0){
-			printf("\n");
-			printf("%d",i);
-			if(i<10)
-				printf("          ");
-			else if(i>=10&&i<100)
-				printf("         ");
-			else if(i>=100&&i<1000)
-				printf("        ");
-			else if(i>=1000&&i<10000)
-				printf("       ");
-			else if(i>=10000&&i<100000)
-				printf("      ");
-			else if(i>=100000&&i<1000000)
-				printf("     ");
-			else if(i>=1000000&&i<10000000)
-				printf("    ");
-			else if(i>=10000000&i<100000000)
-				printf("   ");
-			else 
-				printf("  ");
-		}
-			
-
-		bool bContains=true;
-		while(bContains){
-			num_rand=rand()%len+1;
-			bContains=false;
-			for(int j=0;j<i;j++){
-				if(vec[j]==num_rand){
-					bContains=true;	
-					break;
-				}	
-
+		vec2[i]=i+1;
+		}			
+		for(int j=0;j<len;j++){
+			if(j%5==0){
+				printf("\n");
+				printf("%d",j);
+				if(j<10)
+					printf("          ");
+				else if(j>=10&&j<100)
+					printf("         ");
+				else if(j>=100&&j<1000)
+					printf("        ");
+				else if(j>=1000&&j<10000)
+					printf("       ");
+				else if(j>=10000&&j<100000)
+					printf("      ");
+				else if(j>=100000&&j<1000000)
+					printf("     ");
+				else if(j>=1000000&&j<10000000)
+					printf("    ");
+				else if(j>=10000000&j<100000000)
+					printf("   ");
+				else 
+					printf("  ");
 			}
+			num_temp=rand()%(len-j);
+			vec[j]=vec2[num_temp];
+			vec2[num_temp]=vec2[len-j-1];
+			printf("%d",vec[j]);
+			if(vec[j]<10)		
+				printf("          ");					
+			else if(vec[j]>=10&&vec[j]<100)
+				printf("         ");
+			else if(vec[j]>=100&&vec[j]<1000)
+				printf("        ");
+			else if(vec[j]>=1000&&vec[j]<10000)
+				printf("       ");
+			else if(vec[j]>=10000&&vec[j]<100000)
+				printf("      ");
+			else if(vec[j]>=100000&&vec[j]<1000000)
+				printf("     ");
+			else if(vec[j]>=1000000&&vec[j]<10000000)
+				printf("    ");
+			else if(vec[j]>=10000000&&vec[j]<100000000)
+				printf("   ");
+			else
+				printf("  ");
 
 		}
+
+		//bool bContains=true;
+		//while(bContains){
+
+		//	num_rand=rand()%len+1;
+		//	bContains=false;
+		//	for(int j=0;j<i;j++){
+		//		if(vec[j]==num_rand){
+		//			//bContains=true;	
+		//			vec[i]=len-i;
+		//			break;
+		//		}	
+
+		//	}
+
+		//}
 		
-		vec[i]=num_rand;
-		printf("%d",num_rand);
-		if(num_rand<10)		
-			printf("          ");					
-		else if(num_rand>=10&&num_rand<100)
-			printf("         ");
-		else if(num_rand>=100&&num_rand<1000)
-			printf("        ");
-		else if(num_rand>=1000&&num_rand<10000)
-			printf("       ");
-		else if(num_rand>=10000&&num_rand<100000)
-			printf("      ");
-		else if(num_rand>=100000&&num_rand<1000000)
-			printf("     ");
-		else if(num_rand>=1000000&&num_rand<10000000)
-			printf("    ");
-		else if(num_rand>=10000000&&num_rand<100000000)
-			printf("   ");
-		else
-			printf("  ");
+		//vec[i]=num_rand;
+		//printf("%d",num_rand);
+		
 
 		
-	}
+	
 	bool bAgain=true;
 	
 	while(bAgain){
