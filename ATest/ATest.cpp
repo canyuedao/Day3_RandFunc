@@ -37,9 +37,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	bool try_again=true;
 	while(try_again){
 			while(len<=0){
-
-				printf("请输入随机数的最大值（大于0的整数）\n");
+				printf("请输入随机数的最大值（大于0的整数）\n");				
 		scanf("%d",&len);
+		getchar();
 	}
 	
 	vector<int> vec(len);
@@ -57,7 +57,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		if(i%5==0){
 			printf("\n");
 			printf("%d",i);
-			if(i>=10&&i<100)
+			if(i<10)
+				printf("          ");
+			else if(i>=10&&i<100)
 				printf("         ");
 			else if(i>=100&&i<1000)
 				printf("        ");
@@ -92,10 +94,8 @@ int _tmain(int argc, _TCHAR* argv[])
 		
 		vec[i]=num_rand;
 		printf("%d",num_rand);
-		if(num_rand<10){			
-			printf("         ");
-		}
-			
+		if(num_rand<10)		
+			printf("          ");					
 		else if(num_rand>=10&&num_rand<100)
 			printf("         ");
 		else if(num_rand>=100&&num_rand<1000)
