@@ -74,7 +74,7 @@ int _tmain(int argc, _TCHAR* argv[])
 					printf("     ");
 				else if(j>=1000000&&j<10000000)
 					printf("    ");
-				else if(j>=10000000&j<100000000)
+				else if(j>=10000000&&j<100000000)
 					printf("   ");
 				else 
 					printf("  ");
@@ -129,7 +129,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	bool bAgain=true;
 	
 	while(bAgain){
-		printf("\n再来一次吗？Y\/N\n");
+		printf("\n再来一次吗？Y/N\n");
 		char cAgain;
 		//getchar();
 		scanf(" %c",&cAgain);
