@@ -34,8 +34,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	//char b[4]="123";
 	//string str="123";
 	int len=0;
-	while(len<=0){
-		printf("请输入随机数的最大值（大于0的整数）\n");
+	bool try_again=true;
+	while(try_again){
+			while(len<=0){
+
+				printf("请输入随机数的最大值（大于0的整数）\n");
 		scanf("%d",&len);
 	}
 	
@@ -51,8 +54,27 @@ int _tmain(int argc, _TCHAR* argv[])
 	int num_rand=0;
 	for(int i=0;i<len;i++){
 
-		if(i%10==0)
+		if(i%5==0){
 			printf("\n");
+			printf("%d",i);
+			if(i>=10&&i<100)
+				printf("         ");
+			else if(i>=100&&i<1000)
+				printf("        ");
+			else if(i>=1000&&i<10000)
+				printf("       ");
+			else if(i>=10000&&i<100000)
+				printf("      ");
+			else if(i>=100000&&i<1000000)
+				printf("     ");
+			else if(i>=1000000&&i<10000000)
+				printf("    ");
+			else if(i>=10000000&i<100000000)
+				printf("   ");
+			else 
+				printf("  ");
+		}
+			
 
 		bool bContains=true;
 		while(bContains){
@@ -70,19 +92,52 @@ int _tmain(int argc, _TCHAR* argv[])
 		
 		vec[i]=num_rand;
 		printf("%d",num_rand);
-		if(num_rand<10)
-			printf("     ");
+		if(num_rand<10){			
+			printf("         ");
+		}
+			
 		else if(num_rand>=10&&num_rand<100)
-			printf("    ");
+			printf("         ");
 		else if(num_rand>=100&&num_rand<1000)
-			printf("   ");
+			printf("        ");
 		else if(num_rand>=1000&&num_rand<10000)
-			printf("  ");
+			printf("       ");
+		else if(num_rand>=10000&&num_rand<100000)
+			printf("      ");
+		else if(num_rand>=100000&&num_rand<1000000)
+			printf("     ");
+		else if(num_rand>=1000000&&num_rand<10000000)
+			printf("    ");
+		else if(num_rand>=10000000&&num_rand<100000000)
+			printf("   ");
 		else
-			printf(" ");
+			printf("  ");
 
 		
 	}
-	printf("\n");
+	bool bAgain=true;
+	
+	while(bAgain){
+		printf("\n再来一次吗？Y\/N\n");
+		char cAgain;
+		//getchar();
+		scanf(" %c",&cAgain);
+		if(cAgain=='Y'||cAgain=='y'){
+			try_again=true;len=0;
+			bAgain=false;
+		}
+			
+		else if(cAgain=='N'||cAgain=='n'){
+			//try_again=false;
+			//bAgain=false;
+			return 0;
+		}
+			
+		else
+			bAgain=true;
+	}	
+	}
+	
+	
 }
 
