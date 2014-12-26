@@ -33,38 +33,54 @@ int _tmain(int argc, _TCHAR* argv[])
 	//char a[4]={'1','2','3'};
 	//char b[4]="123";
 	//string str="123";
-	int a[54]={};
-	int b[54]={};
+	int len=0;
+	while(len<=0){
+		printf("请输入随机数的最大值（大于0的整数）\n");
+		scanf("%d",&len);
+	}
+	
+	vector<int> vec(len);
+	
+	
 	/*for(int i=1;i<55;i++){
 	vec.push_back(i);
 	}
 	vector<int>::iterator it=vec.begin();*/
 	int temp=0;
 	srand(time(NULL));
-	int num=0;
-	for(int i=0;i<54;i++){
-		
-		if(i%13==0)
+	int num_rand=0;
+	for(int i=0;i<len;i++){
+
+		if(i%10==0)
 			printf("\n");
-		bool contains=true;
-		while(contains){
-			num=rand()%54+1;
-			contains=false;
+
+		bool bContains=true;
+		while(bContains){
+			num_rand=rand()%len+1;
+			bContains=false;
 			for(int j=0;j<i;j++){
-				if(a[j]==num){
-					contains=true;						
+				if(vec[j]==num_rand){
+					bContains=true;	
+					break;
 				}	
-					
+
 			}
-			
+
 		}
 		
-		a[i]=num;
-		printf("%d",num);
-		if(num>=10)
-			printf("   ");
-		else
+		vec[i]=num_rand;
+		printf("%d",num_rand);
+		if(num_rand<10)
+			printf("     ");
+		else if(num_rand>=10&&num_rand<100)
 			printf("    ");
+		else if(num_rand>=100&&num_rand<1000)
+			printf("   ");
+		else if(num_rand>=1000&&num_rand<10000)
+			printf("  ");
+		else
+			printf(" ");
+
 		
 	}
 	printf("\n");
